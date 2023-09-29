@@ -25,10 +25,9 @@ public class DynamoDbConfiguration {
 				.standard()
 				.withEndpointConfiguration(
 						new AwsClientBuilder.EndpointConfiguration(
-								"http://162.55.210.42:8000/",
-								"ap-south-1"
+								"",""
 								)
-						).withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials("accessKey", "secreKey")))
+						).withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials()))
 				
 				.build();
 	}
