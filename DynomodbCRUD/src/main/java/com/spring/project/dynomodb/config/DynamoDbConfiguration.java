@@ -2,8 +2,6 @@ package com.spring.project.dynomodb.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder;
@@ -25,9 +23,9 @@ public class DynamoDbConfiguration {
 				.standard()
 				.withEndpointConfiguration(
 						new AwsClientBuilder.EndpointConfiguration(
-								"",""
+								"http://162.55.210.42:8000","ap-south-1"
 								)
-						).withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials()))
+						).withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials("accessKey","secreKey")))
 				
 				.build();
 	}

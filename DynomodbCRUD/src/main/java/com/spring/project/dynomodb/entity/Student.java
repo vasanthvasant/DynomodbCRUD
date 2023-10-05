@@ -24,5 +24,7 @@ public class Student {
 	private String email;
 	@DynamoDBAttribute
 	private String mobile;
+	
+	
 
 }

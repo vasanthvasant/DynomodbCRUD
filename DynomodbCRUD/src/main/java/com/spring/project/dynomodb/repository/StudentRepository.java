@@ -1,22 +1,17 @@
 package com.spring.project.dynomodb.repository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBSaveExpression;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.amazonaws.services.dynamodbv2.model.ExpectedAttributeValue;
 import com.spring.project.dynomodb.entity.Student;
 
 @Repository
 public class StudentRepository {
 	@Autowired
-	 private DynamoDBMapper dynamoDBMapper;
+	private DynamoDBMapper dynamoDBMapper;
 	
 	public Student save(Student student) {
 		dynamoDBMapper.save(student);
-		return student;
+		return student;	
 	}
 	
 	public Student getStudentById(String studentId) {
@@ -30,12 +25,7 @@ public class StudentRepository {
 	}
 	
 	public String update(String studentId, Student student) {
-		dynamoDBMapper.save(student,
-				new DynamoDBSaveExpression()
-				.withExpectedEntry(studentId,
-						new ExpectedAttributeValue(
-								new AttributeValue().withS(studentId)
-								)));
+		dynamoDBMapper.save(student);
 		return studentId;
 	}
 
